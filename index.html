@@ -41,23 +41,7 @@
               <th>操作</th>
             </tr>
           </thead>
-          <tbody id="record-list">
-            <tr>
-              <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
-              <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
-              <td class="cz"><span>修改</span> <span>删除</span></td>
-            </tr>
-            <tr>
-              <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
-              <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
-              <td class="cz"><span>修改</span> <span>删除</span></td>
-            </tr>
-            <tr>
-              <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
-              <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
-              <td class="cz"><span>修改</span> <span>删除</span></td>
-            </tr>
-          </tbody>
+          <tbody id="record-list"></tbody>
         </table>
       </div>
     </div>
@@ -102,6 +86,8 @@
     var Board = {
       tagArr: [],
       attrArr: [],
+      record: {},
+      reserveArr: {},
       type: '',
       selectDom: null,
       recordItemDom: null,
@@ -195,11 +181,11 @@
       },
       
       removeAttr: function (dom, event) { // 移除属性单一内容
-        event.stopPropagation();
+        window.event? window.event.cancelBubble = true : event.stopPropagation();
         var attr = $(dom).attr('attr')
         var tag = $(dom).attr('tag')
         $(dom).parent().remove();
-        // cleanRecordAttr(tag, attr)
+        Board.cleanRecordAttr(tag, attr)
         // 移除record对应attr
         //TODO 移除数据
       },
@@ -257,7 +243,9 @@
       },
 
       cleanRecordAttr: function (tag, attr) { // 去除记录中的某个属性
-        recordListDom.find('[tag="' + tag + '"]').filter('[attr="' + attr + '"]').text('')
+        Board.recordListDom.children().each(function () {
+          $(this).find('[tag="' + tag + '"]').filter('[attr="' + attr + '"]').html('')
+        })
       },
 
       selectRecord (dom) { // 选择单行记录
@@ -269,11 +257,15 @@
       },
 
       selectAttr: function (dom) { // 表格 添加属性
+        $(dom).parent().children().each(function () {
+          $(this).removeClass('tag-active')
+        })
+        $(dom).addClass('tag-active')
         if (Board.recordItemDom) {
           var tag = $(dom).attr('tag')
           var attr = $(dom).attr('attr')
+          $(Board.recordItemDom).find('[tag="' + tag + '"]').html(attr).attr('attr', attr)
         }
-        $(Board.recordItemDom).find('[tag="' + tag + '"]').html(attr)
       }
     }
   </script>
