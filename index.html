@@ -200,16 +200,17 @@
       },
 
       confirm: function () { // 模态框确认
-        modalDom.hide()
         var value = inputDom.val()
         if (!value) {
           alert('请输入内容')
           return
         }
+        // TODO 有问题
         if (Board[Board.type + 'Arr'].indexOf(value) > -1) {
           alert('已添加该属性')
           return
         }
+        // TODO 有问题
         switch (Board.type) {
           case 'tag':
             Board.createTag(value);
@@ -217,6 +218,7 @@
             Board.createAttr(value);
             break;
         }
+        Board.cancel()
       },
 
       createTag: function (tag) {// 添加属性栏
@@ -234,11 +236,7 @@
                   '</span>',
                 '</div>',
                 '<div class="zishuxing">',
-                  // '<span class="el-tag el-tag--light">',
-                  //   '<span>标签一</span>',
-                  //   '<img src="./icon_gb_tc@3x.png" class="el-message-box__close close el-tag__close el-icon-close" />',
-                  // '</span>',
-                  '<span class="el-tag el-tag--light" onclick="Board.openModal(\'attr\', this)">+ New Tag</span>',
+                  '<span class="el-tag el-tag--light" onclick="Board.openModal(\'attr\', this)" tag="' + tag + '">+ New Tag</span>',
                 '</div>',
               '</div>',
             '</div>',
@@ -254,16 +252,16 @@
         // 移除record对应栏
         //TODO 移除数据
       },
-      createAttr: function (value) { // 添加属性内容
+      createAttr: function (attr) { // 添加属性内容
         $(_selectDom).before(function () {
           return [
-            '<div onclick="Board.selectTag()" tag="',
-            _selectDom.attr('value'),
-            '" value="',
-            value,
-            '">',
-            value,
-            '<div onclick="Board.removeAttr(this)"></div>',
+            '<span class="el-tag el-tag--light" attr="' + attr + '">',
+              '<span>' + attr + '</span>',
+              '<img src="./icon_gb_tc@3x.png" ',
+                'class="el-message-box__close close el-tag__close el-icon-close" ',
+                'onclick="Board.removeAttr(this)" attr="' + attr + '" tag="' + selectDom.attr('tag') + '" />',
+            '</span>',
+            // '<div onclick="Board.selectTag()" tag="',
           ].join('')
         })
         //TODO 添加数据
