@@ -17,87 +17,42 @@
         <div class="pgleft">
         </div>
         <div class="pgright">
-          <img class="firstAdd" src="./timg.jpg" onclick="Board.openModal('tag')" />
+          <img class="firstAdd sbs" src="./timg.jpg" onclick="Board.openModal('tag')" />
         </div>
       </div>
       <div id="tag-list">
-        <div class="line">
-          <div class="pgleft">类型：</div>
-          <div class="pgright">
-            <div class="firtLable vt ">
-              <span class="el-tag el-tag--light mt0">
-                <span>标签一</span>
-                <img src="./icon_gb_tc@3x.png" class="el-message-box__close close el-tag__close el-icon-close" />
-              </span>
-            </div>
-            <div class="zishuxing">
-              <span class="el-tag el-tag--light">
-                <span>标签一</span>
-                <img src="./icon_gb_tc@3x.png" class="el-message-box__close close el-tag__close el-icon-close" />
-              </span>
-              <span class="el-tag el-tag--light">+ New Tag</span>
-            </div>
-          </div>
+      </div>
+      <div class="line">
+        <div class="pgleft">
         </div>
-        <div class="line">
-          <div class="pgleft">
-            类型：
-          </div>
-          <div class="pgright">
-            <div class="firtLable vt">
-              <span class="el-tag el-tag--light mt0">
-                标签一 <img src="./icon_gb_tc@3x.png" class="el-message-box__close close el-tag__close el-icon-close" />
-                <!-- <i class="el-tag__close el-icon-close"></i> -->
-              </span>
-            </div>
-            <div class="zishuxing">
-              <span class="el-tag el-tag--light">
-                标签一 <img src="./icon_gb_tc@3x.png" class="el-message-box__close close el-tag__close el-icon-close" />
-                <!-- <i class="el-tag__close el-icon-close"></i> -->
-              </span>
-              <span class="el-tag el-tag--light">
-                + New Tag
-                <!-- <i class="el-tag__close el-icon-close"></i> -->
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="line">
-          <div class="pgleft">
-          </div>
-          <div class="pgright">
-            <span class="el-tag el-tag--light">
-              + New Tag
-              <!-- <i class="el-tag__close el-icon-close"></i> -->
-            </span>
-          </div>
+        <div class="pgright">
+          <button type="button" class="el-button el-button--default el-button--small el-button--primary"
+            onclick="Board.createRecord()">
+            <span>生成记录</span>
+          </button>
         </div>
       </div>
       <div class="line">
-        <table data-toggle="table" id="mytab" class="table table-hover" cellspacing="0" cellpadding="0" border="0">
+        <table data-toggle="table" id="record" class="table table-hover mytab" cellspacing="0" cellpadding="0" border="0">
           <thead>
-            <tr>
-              <th>Item ID</th>
+            <tr id="record-header">
               <th>Item Name</th>
               <th>Item Price</th>
               <th>操作</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="record-list">
             <tr>
-              <td>1</td>
               <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
               <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
               <td class="cz"><span>修改</span> <span>删除</span></td>
             </tr>
             <tr>
-              <td>2</td>
               <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
               <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
               <td class="cz"><span>修改</span> <span>删除</span></td>
             </tr>
             <tr>
-              <td>x</td>
               <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
               <td><input type="text" value="123"  placeholder="" class="el-input__inner w100"></td>
               <td class="cz"><span>修改</span> <span>删除</span></td>
@@ -122,7 +77,7 @@
         <div class="el-message-box__message">
           <p>属性名称:</p>
         </div>
-        <div class="el-message-box__input" style="">
+        <div class="el-message-box__input">
           <div class="el-input">
             <input type="text" autocomplete="off" placeholder="" class="el-input__inner" id="input">
           </div>
@@ -132,7 +87,7 @@
       <div class="el-message-box__btns">
         <button type="button"
           class="el-button el-button--default el-button--small el-button--primary"
-          onclick="Board.cancel()">
+          onclick="Board.createRecord()">
           <span>取消</span>
         </button>
         <button type="button"
@@ -143,64 +98,33 @@
       </div>
     </div>
   </div>
-  <section id="board">
-    <modal class="modal">
-      <input class="attr-input" type="text">
-      <button class="close-modal" onclick="Board.cancel()"></button>
-      <button class="add-attr" onclick="Board.confirm()"></button>
-      </button>
-      <div>属性标题</div>
-      <div class="attr-list">
-        <div>
-          <div onclick=""></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <button onclick=""></button>
-      </div>
-      <div>记录标题</div>
-      <div class="record-header"></div>
-      <div>记录标题</div>
-  </section>
-  <div class="record-list"></div>
   <script>
-    tagArr = []
-    attrArr = []
-    selectDom = null
-    type = ''
-    var boardDom = $('#board');
-    var modalDom = $('#modal');
-
-    var openModalBtnDom = boardDom.find('.open-add-attr-modal');
-    var attrListDom = boardDom.find('.attr-list');
-    var recordListDom = boardDom.find('.record-list');
-    var recordHeaderDom = recordListDom.find('.record-header');
-
-
-    var inputDom = modalDom.find('input');
     var Board = {
       tagArr: [],
       attrArr: [],
       type: '',
       selectDom: null,
+      recordItemDom: null,
       modalDom: $('#modal'),
       inputDom: $('#input'),
       tagListDom: $('#tag-list'),
+      recordDom: $('#record'),
+      recordHeaderDom: $('#record-header'),
+      recordListDom: $('#record-list'),
 
       openModal: function (type, dom) { // 模态框打开
         Board.type = type
         Board.selectDom = dom
-        modalDom.show()
+        Board.modalDom.show()
       },
 
       cancel: function () {// 模态框取消
-        modalDom.hide()
-        inputDom.val('')
+        Board.modalDom.hide()
+        Board.inputDom.val('')
       },
 
       confirm: function () { // 模态框确认
-        var value = inputDom.val()
+        var value = Board.inputDom.val()
         if (!value) {
           alert('请输入内容')
           return
@@ -210,6 +134,7 @@
           alert('已添加该属性')
           return
         }
+        Board[Board.type + 'Arr'].push(value)
         // TODO 有问题
         switch (Board.type) {
           case 'tag':
@@ -228,7 +153,7 @@
               '<div class="pgleft">类型：</div>',
               '<div class="pgright">',
                 '<div class="firtLable vt">',
-                  '<span class="el-tag el-tag--light">',
+                  '<span class="el-tag el-tag--light mt0">',
                     '<span>' + tag + '</span>',
                     '<img src="./icon_gb_tc@3x.png" ',
                     'class="el-message-box__close close el-tag__close el-icon-close" ',
@@ -236,82 +161,118 @@
                   '</span>',
                 '</div>',
                 '<div class="zishuxing">',
-                  '<span class="el-tag el-tag--light" onclick="Board.openModal(\'attr\', this)" tag="' + tag + '">+ New Tag</span>',
+                  '<span class="el-tag el-tag--light sbs" onclick="Board.openModal(\'attr\', this)" tag="' + tag + '">+ New Tag</span>',
                 '</div>',
               '</div>',
             '</div>',
           ].join('')
         })
-        // addRecordTag(value)
+        Board.addRecordTag(tag)
         //TODO 添加数据
       },
       
       removeTag: function (tag) { // 移除属性栏
         Board.tagListDom.find('[tag="' + tag + '"]').remove()
-        // cleanRecordTag(tag)
+        Board.cleanRecordTag(tag)
         // 移除record对应栏
         //TODO 移除数据
       },
+
       createAttr: function (attr) { // 添加属性内容
-        $(_selectDom).before(function () {
+        var dom = $(Board.selectDom)
+        dom.before(function () {
           return [
-            '<span class="el-tag el-tag--light" attr="' + attr + '">',
+            '<span class="el-tag el-tag--light" attr="' + attr + '" tag="' + dom.attr('tag') + '" onclick="Board.selectAttr(this)">',
               '<span>' + attr + '</span>',
               '<img src="./icon_gb_tc@3x.png" ',
                 'class="el-message-box__close close el-tag__close el-icon-close" ',
-                'onclick="Board.removeAttr(this)" attr="' + attr + '" tag="' + selectDom.attr('tag') + '" />',
+                'onclick="Board.removeAttr(this)" attr="' + attr + '" tag="' + dom.attr('tag') + '" />',
             '</span>',
             // '<div onclick="Board.selectTag()" tag="',
           ].join('')
         })
         //TODO 添加数据
       },
-      // 移除属性单一内容
-      removeAttr: function (dom) { // 添加属性内容
+      
+      removeAttr: function (dom) { // 移除属性单一内容
         var attr = $(dom).attr('attr')
         var tag = $(dom).attr('tag')
         $(dom).parent().remove();
-        cleanRecordAttr(tag, attr)
+        // cleanRecordAttr(tag, attr)
         // 移除record对应attr
         //TODO 移除数据
       },
+
       createRecord: function () { // 添加单条记录
         //TODO 缺少判断 上一条是否填写完整
-        recordListDom.append(function () {
+        Board.recordListDom.append(function () {
           return [
-            '<div />',
-            '<div value=""/>',
-            '<div />',
-            '<div />',
-            '<div onclick="Board.removeRecord(this)" />',
+            '<tr onclick="Board.selectRecord(this)">',
+              Board.setRecordHtml(),
+              '<td><input type="text" value="123" placeholder="" class="el-input__inner w100"></td>',
+              '<td><input type="text" value="123" placeholder="" class="el-input__inner w100"></td>',
+              '<td class="cz">',
+                '<span onclick="Board.removeRecord(this)">删除</span>',
+              '</td>',
+            '</tr>',
           ].join('')
         })
         //TODO 添加数据
       },
+
+      setRecordHtml: function (params) { // 内部工具方法
+        var html = ''
+        for (let i = 0; i < Board.tagArr.length; i++) {
+          html += '<td tag="' + Board.tagArr[i] + '"></td>'
+        }
+        return html
+      },
       
       removeRecord: function (dom) { // 移除单条记录
-        $(dom).parent().remove();
+        $(dom).parent().parent().remove();
         //TODO 移除数据
       },
 
-      addRecordTag: function (value) { // 添加record tag
-        recordListDom.children().each(function () {
+      addRecordTag: function (tag) { // 添加record tag
+        Board.recordHeaderDom.children().eq(-3).before(function () {
+          return [
+            '<td tag="' + tag + '">'+ tag +'</td>',
+          ].join('')
+        })
+        Board.recordListDom.children().each(function () {
           $(this).children().eq(-3).before(function () {
             return [
-              value
+              '<td tag="' + tag + '"></td>',
             ].join('')
           })
         })
       },
 
-      cleanRecordTag: function () {
-        recordListDom.children().each(function () {
-          $(this).children().eq(-3 - index).remove()
+      cleanRecordTag: function (tag) { // 去除记录中的某个标记
+        Board.recordHeaderDom.children().filter('[tag="'+ tag +'"]').remove()
+        Board.recordListDom.children().each(function () {
+          $(this).children().filter('[tag="'+ tag +'"]').remove()
         })
       },
 
-      cleanRecordAttr: function (tag, attr) {
+      cleanRecordAttr: function (tag, attr) { // 去除记录中的某个属性
         recordListDom.find('[tag="' + tag + '"]').filter('[attr="' + attr + '"]').text('')
+      },
+
+      selectRecord (dom) { // 选择单行记录
+        Board.recordListDom.children().each(function () {
+          $(this).removeClass('active')
+        })
+        $(dom).addClass('active')
+        Board.recordItemDom = dom
+      },
+
+      selectAttr: function (dom) { // 表格 添加属性
+        if (Board.recordItemDom) {
+          var tag = $(dom).attr('tag')
+          var attr = $(dom).attr('attr')
+        }
+        $(Board.recordItemDom).find('[tag="' + tag + '"]').html(attr)
       }
     }
   </script>
