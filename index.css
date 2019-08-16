@@ -290,7 +290,11 @@ thead th {
 tr:hover>td {
   background-color: #f5f7fa;
 }
-
+.w100{
+  width: 80%!important;
+  margin: auto!important;
+  border-radius: 0px!important;
+}
 .mt0 {
   margin-top: 0px !important;
 }
