@@ -1,0 +1,296 @@
+.firtLable {
+  min-width: 86px;
+  display: inline-block;
+}
+
+.line {
+  padding-bottom: 23px;
+  width: 100%;
+}
+
+.pgleft {
+  float: left;
+  line-height: 27px;
+  width: 130px;
+  width: 125px;
+  text-align: right;
+  height: 100%;
+  /* background-color: #250a0a; */
+}
+
+.pgright {
+  margin-left: 130px;
+  height: 100%;
+  /* background-color: red; */
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  display: block;
+}
+
+#app {
+  margin: auto;
+  width: 1200px;
+}
+
+.firstAdd {
+  width: 70px;
+  height: 70px;
+}
+
+.pageBox {
+  margin: auto;
+  padding: 50px;
+  display: block;
+}
+
+.tck_box {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  /* min-height: 100vh; */
+  height: 100%;
+}
+
+.tck {
+  width: 200px;
+  height: 178px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+.el-message-box__header {
+  position: relative;
+  padding: 15px 15px 10px;
+}
+
+.el-message-box__title {
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #303133;
+}
+
+.el-message-box__headerbtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.el-message-box__content {
+  position: relative;
+  padding: 10px 15px;
+  color: #606266;
+  font-size: 14px;
+}
+
+.el-message-box__message {
+  margin: 0;
+}
+
+.el-message-box__message p {
+  margin: 0;
+  line-height: 24px;
+}
+
+.el-input {
+  position: relative;
+  font-size: 14px;
+  display: inline-block;
+  width: 100%;
+}
+
+.el-message-box {
+  display: inline-block;
+  width: 420px;
+  padding-bottom: 10px;
+  vertical-align: middle;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ebeef5;
+  font-size: 18px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+  text-align: left;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.el-input__inner {
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 15px;
+  transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+  width: 100%;
+}
+
+.el-message-box__btns {
+  padding: 5px 15px 0;
+  text-align: right;
+}
+
+.el-button--small {
+  padding: 9px 15px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.el-button--primary {
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+}
+
+.el-button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: 500;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.close {
+  height: 20px;
+  width: 20px;
+  /* background-color: #FA6900; */
+  border-radius: 5px;
+}
+
+.el-tag {
+  background-color: #ecf5ff;
+  display: inline-block;
+  height: 32px;
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #409eff;
+  border: 1px solid #d9ecff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  margin-top: 11px;
+}
+
+.el-tag .el-tag__close {
+  color: #409eff;
+}
+
+.el-tag .el-icon-close {
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  height: 13px;
+  width: 13px;
+  line-height: 16px;
+  vertical-align: middle;
+  top: -1px;
+  right: -5px;
+}
+
+.zishuxing {
+  display: inline-block;
+  padding: 11px;
+  border: 1px solid #d9ecff;
+  border-radius: 5px;
+  max-width: 774px;
+  padding-top: 0px
+}
+.el-tag+.el-tag {
+  margin-left: 10px;
+}
+
+.vt {
+  vertical-align: top;
+}
+
+#mytab {
+  width: 100%;
+
+}
+
+table,
+th,
+td {
+  border: 1px solid #ebeef5;
+}
+
+tr {
+  height: 48px;
+}
+
+td {
+  text-align: center;
+  height: 23;
+  font-size: 14px;
+  color: #606266;
+}
+
+.cz {
+  text-align: left;
+  padding-left: 30px;
+}
+
+.cz span {
+  color: #3a8ee6;
+  cursor: pointer;
+}
+
+thead th {
+  color: #909399;
+  font-weight: bold;
+}
+
+tr:hover>td {
+  background-color: #f5f7fa;
+}
+
+.mt0 {
+  margin-top: 0px !important;
+}
