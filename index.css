@@ -304,3 +304,8 @@ tr:hover>td {
 .active {
   background-color: #f5f7fa;
 }
+.tag-active{
+  background-color: #fef0f0!important;;
+  border-color: #fde2e2!important;;
+  color: #f56c6c!important;;
+}
