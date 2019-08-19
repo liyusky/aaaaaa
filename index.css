@@ -309,3 +309,7 @@ tr:hover>td {
   border-color: #fde2e2!important;;
   color: #f56c6c!important;;
 }
+
+.warning {
+  background-color: #fde2e2 !important;
+}
