@@ -251,7 +251,7 @@ var Board = {
     })
   },
 
-  selectRecord(dom, uuid) { // 选择单行记录
+  selectRecord: function (dom, uuid) { // 选择单行记录
     $('.tag-active').each(function () {
       $(this).removeClass('tag-active')
     })
