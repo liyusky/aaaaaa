@@ -70,7 +70,7 @@ var Board = {
         '<div class="pgleft">类型：</div>',
         '<div class="pgright">',
         '<div class="firtLable vt">',
-        '<span class="el-tag el-tag--light mt0">',
+        '<span class="sbs el-tag el-tag--light mt0">',
         '<span>' + tag + '</span>',
         '<img src="./icon_gb_tc@3x.png" ',
         'class="el-message-box__close close el-tag__close el-icon-close" ',
@@ -78,7 +78,7 @@ var Board = {
         '</span>',
         '</div>',
         '<div class="zishuxing">',
-        '<span class="el-tag el-tag--light sbs" onclick="Board.openModal(\'attr\', this)" tag="' + tag + '" uuid="' + uuid + '">+ New Tag</span>',
+        '<span class=" sbs el-tag el-tag--light sbs" onclick="Board.openModal(\'attr\', this)" tag="' + tag + '" uuid="' + uuid + '">+ New Tag</span>',
         '</div>',
         '</div>',
         '</div>',
@@ -105,7 +105,7 @@ var Board = {
     Board.attrMeta[tagUuid].push(attr)
     dom.before(function () {
       return [
-        '<span class="el-tag el-tag--light" id="' + uuid + '" attr="' + attr + '" tag="' + dom.attr('tag') + '" onclick="Board.selectAttr(this)" uuid="' + uuid + '" tagUuid="' + tagUuid + '">',
+        '<span class="sbs el-tag el-tag--light" id="' + uuid + '" attr="' + attr + '" tag="' + dom.attr('tag') + '" onclick="Board.selectAttr(this)" uuid="' + uuid + '" tagUuid="' + tagUuid + '">',
         '<span>' + attr + '</span>',
         '<img src="./icon_gb_tc@3x.png" ',
         'class="el-message-box__close close el-tag__close el-icon-close" ',
