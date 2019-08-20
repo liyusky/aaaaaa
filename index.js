@@ -174,7 +174,7 @@ var Board = {
         '<td class="vipCost"><input type="text" class="el-input__inner w100" onblur="Board.isNum(this)" onchange="Board.getVipCost(this, \'' + uuid + '\')"></td>',
         '<td class="interests"><input type="text" class="el-input__inner w100" onchange="Board.getInterests(this, \'' + uuid + '\')"></td>',
         '<td class="cz">',
-        '<span onclick="Board.removeRecord(this)">删除</span>',
+        '<span onclick="Board.removeRecord(\'' + uuid + '\')">删除</span>',
         '</td>',
         '</tr>',
       ].join('')
@@ -199,9 +199,11 @@ var Board = {
     return html
   },
 
-  removeRecord: function (dom) { // 移除单条记录
-    $(dom).parent().parent().remove();
+  removeRecord: function (uuid) { // 移除单条记录
+    window.event ? window.event.cancelBubble = true : event.stopPropagation();
+    $('#' + uuid).remove();
     //TODO 移除数据
+    delete Board.record[uuid]
   },
 
   addRecordTag: function (tag, uuid) { // 添加record tag
@@ -340,14 +342,17 @@ var Board = {
   },
 
   getOriginCost: function (dom, recordUuid) {
+    window.event ? window.event.cancelBubble = true : event.stopPropagation();
     Board.record[recordUuid].originCost = $(dom).val()
   },
 
   getVipCost: function (dom, recordUuid) {
+    window.event ? window.event.cancelBubble = true : event.stopPropagation();
     Board.record[recordUuid].vipCost = $(dom).val()
   },
 
   getInterests: function (dom, recordUuid) {
+    window.event ? window.event.cancelBubble = true : event.stopPropagation();
     Board.record[recordUuid].interests = $(dom).val()
   },
 
@@ -373,6 +378,7 @@ var Board = {
   },
 
   isNum: function (dom) {
+    window.event ? window.event.cancelBubble = true : event.stopPropagation();
     var re = /^([1-9]\d*(\.\d{1,2}){0,1}|0\.\d{1,2})$/
     if (dom) {
       num = $(dom).val()
